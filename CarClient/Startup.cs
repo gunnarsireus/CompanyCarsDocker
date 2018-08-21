@@ -43,7 +43,7 @@ namespace CarClient
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Magic8Ball}/{action=Index}/{id?}");
             });
         }
     }
