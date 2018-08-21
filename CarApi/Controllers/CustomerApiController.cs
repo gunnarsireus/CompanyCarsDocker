@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarApi.Controllers
@@ -13,14 +10,14 @@ namespace CarApi.Controllers
         [HttpGet]
         public IEnumerable<global::Models.Customer> Get()
         {
-            return new global::Models.Customer[] { new Data.Customer().GetByName("*") };
+            return new global::Models.Customer[] { new global::Data.Customer().GetByName("*") };
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public global::Models.Customer Get(string name)
         {
-            return new Data.Customer().GetByName(name);
+            return new global::Data.Customer().GetByName(name);
         }
 
         // POST api/values

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using CarAPI.Data;
-using CarAPI.DAL;
+using CarApi.Data;
+using CarApi.DAL;
 
-namespace CarAPI.Data
+namespace CarApi.Data
 {
     public class CarUnitOfWork:ICarUnitOfWork
     {

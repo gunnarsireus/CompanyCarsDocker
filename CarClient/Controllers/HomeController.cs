@@ -20,7 +20,7 @@ namespace CarClient.Controllers
 			}
 			catch (Exception e)
 			{
-				TempData["CustomError"] = "Ingen kontakt med servern! CarAPI måste startas innan CarClient kan köras!";
+				TempData["CustomError"] = "Ingen kontakt med servern! CarApi måste startas innan CarClient kan köras!";
 				return View(new HomeViewModel { Companies = new List<Company>()});
 			}
 

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarAPI.Data
+namespace CarApi.Data
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {

@@ -32,9 +32,9 @@ namespace CarClient
                 .AddDefaultTokenProviders();
 
             services.AddMvc();
-            services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite("Data Source=" + Directory.GetCurrentDirectory() + "\\App_Data\\AspNet.db"));
+            var task = ConfigureServicesAsync(services);
 
+            task.Wait();
         }
 
         public async Task ConfigureServicesAsync(IServiceCollection services)
@@ -51,13 +51,14 @@ namespace CarClient
             }
             if (aspNetDb != null)
             {
+                var test = File.Exists(aspNetDb);
                 services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlite("Data Source=" + aspNetDb));
             }
             else
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite("Data Source=" + Directory.GetCurrentDirectory() + "\\App_Data\\AspNet.db"));
+                    options.UseSqlite("Data Source=" + Directory.GetCurrentDirectory() + "/App_Data/AspNet.db"));
             }
         }
 

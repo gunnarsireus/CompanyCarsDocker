@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CarApi.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class Magic8BallApiController : Controller
     {
         static Random _r = new Random();

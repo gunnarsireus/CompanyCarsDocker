@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
 
-namespace CarAPI.Controllers
+namespace CarApi.Controllers
 {
     [Route("api/[controller]")]
 	public class AspNetDbController : Controller
@@ -11,7 +11,7 @@ namespace CarAPI.Controllers
 		[HttpGet]
 		public string GetAspNetDb()
 		{
-            return Directory.GetCurrentDirectory() + "\\App_Data\\AspNet.db";
+            return Directory.GetCurrentDirectory() + "/App_Data/AspNet.db";
 		}
 	}
 }

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using CarApi.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -23,6 +26,8 @@ namespace CarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CarApiContext>(options =>
+                options.UseSqlite("Data Source=App_Data/Car.db"));
             services.AddMvc();
         }
 
@@ -35,6 +40,13 @@ namespace CarApi
             }
 
             app.UseMvc();
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<CarApiContext>();
+                context.Database.EnsureCreated();
+                context.EnsureSeedData();
+            }
         }
     }
 }

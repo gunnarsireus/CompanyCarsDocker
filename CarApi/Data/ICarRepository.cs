@@ -1,6 +1,6 @@
-﻿using CarAPI.Models;
+﻿using CarApi.Models;
 
-namespace CarAPI.Data
+namespace CarApi.Data
 {
     public interface ICarRepository:IRepository<Car>
     {

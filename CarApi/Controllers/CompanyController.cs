@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using CarAPI.Data;
-using CarAPI.DAL;
-using CarAPI.Models;
+using CarApi.Data;
+using CarApi.DAL;
+using CarApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarAPI.Controllers
+namespace CarApi.Controllers
 {
     [Route("api/[controller]")]
     public class CompanyController : Controller

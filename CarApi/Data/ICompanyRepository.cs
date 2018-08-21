@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CarAPI.Models;
+using CarApi.Models;
 
-namespace CarAPI.Data
+namespace CarApi.Data
 {
     public interface ICompanyRepository:IRepository<Company>
     {

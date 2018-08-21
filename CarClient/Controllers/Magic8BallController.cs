@@ -17,7 +17,7 @@ namespace CarClient_UI.Controllers
         public Magic8BallController()
         {
             _doSomethingBaseAddress = "http://carapi";
-            _doSomethingAPIUrl = "/Magic8BallApi";
+            _doSomethingAPIUrl = "/api/Magic8BallApi";
         }
         // GET: /<controller>/
         public async Task<IActionResult> Index()
@@ -45,9 +45,9 @@ namespace CarClient_UI.Controllers
             //
             if (response != null && response.IsSuccessStatusCode)
             {
-                List<Dictionary<String, String>> responseElements = new List<Dictionary<String, String>>();
-                JsonSerializerSettings settings = new JsonSerializerSettings();
-                String responseString = await response.Content.ReadAsStringAsync();
+                //List<Dictionary<String, String>> responseElements = new List<Dictionary<String, String>>();
+                //JsonSerializerSettings settings = new JsonSerializerSettings();
+                var responseString = await response.Content.ReadAsStringAsync();
                 ViewData["Answer"] = responseString;
 
             }

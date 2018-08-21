@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CarAPI.Models
+namespace CarApi.Models
 {
 	public class Car
 	{

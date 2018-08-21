@@ -4,10 +4,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using CarAPI.DAL;
-using CarAPI.Models;
+using CarApi.DAL;
+using CarApi.Models;
 
-namespace CarAPI.Data
+namespace CarApi.Data
 {
 	public class CarRepository : Repository<Car>, ICarRepository
 	{
