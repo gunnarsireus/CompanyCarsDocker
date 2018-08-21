@@ -7,11 +7,11 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Diagnostics;
-using Web.Models;
+using CarClient.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
 
-namespace Web.Controllers
+namespace CarClient.Controllers
 {
     public class CustomerController : Controller
     {

@@ -6,7 +6,7 @@
     <ProjectGuid>4bf60248-df6c-4ed5-968e-a8f67a4a6019</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
     <DockerServiceUrl>http://localhost:{ServicePort}</DockerServiceUrl>
-    <DockerServiceName>web</DockerServiceName>
+    <DockerServiceName>carclient</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

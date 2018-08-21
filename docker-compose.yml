@@ -6,11 +6,11 @@ services:
     build:
       context: .
       dockerfile: CarApi/Dockerfile
-  web:
-    image: ${DOCKER_REGISTRY}web
+  carclient:
+    image: ${DOCKER_REGISTRY}carclient
     build:
       context: .
-      dockerfile: Web/Dockerfile
+      dockerfile: CarClient/Dockerfile
 
 
 

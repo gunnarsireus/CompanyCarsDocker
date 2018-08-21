@@ -7,9 +7,9 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Diagnostics;
-using Web.Models;
+using CarClient.Models;
 
-namespace Web.Controllers
+namespace CarClient.Controllers
 {
     public class HomeController : Controller
     {
