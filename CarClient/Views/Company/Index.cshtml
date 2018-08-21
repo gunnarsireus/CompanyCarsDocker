@@ -1,0 +1,59 @@
+@model CarClient.Models.CompanyViewModel.CompanyViewModel
+
+@{
+    ViewData["Title"] = "Company";
+}
+
+<h2>Company</h2>
+
+<p>
+    <a asp-action="Create">Create new company</a>
+</p>
+<div class="row">
+    <div class="col-lg-8">
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Companies[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Companies[0].Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Companies[0].CreationTime)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Companies)
+            {
+                <tr>
+                    <td>
+                        @Html.HiddenFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreationTime)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-4">
+        <p class="alert-info">All companies registered in the database are shown here. You can also create new companies as well as remove companies. To see which vehicle belong to a certain company, go to Company Vehicles.</p>
+    </div>
+</div>

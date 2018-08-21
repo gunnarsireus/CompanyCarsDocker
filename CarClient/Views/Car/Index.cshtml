@@ -1,0 +1,86 @@
+@using System.Security.Principal
+@model CarClient.Models.CarViewModel.CarListViewModel
+@{
+    ViewData["Title"] = "Company Vehicles";
+}
+<h2>Company Vehicles</h2>
+
+<script type="text/javascript">
+    function ShowCars() {
+        window.location = "/Car/Index/" + $('#CarsForCompany').val();
+    }
+</script>
+@{
+    if (ViewBag.CompanyId != null)
+    {
+        <table>
+            <tr class="page-header">Vehicles for companies</tr>
+            <tr>
+                <td>
+                    @Html.DropDownList("CarsForCompany", Model.CompanySelectList, new { onchange = "ShowCars()" })
+                </td>
+            </tr>
+        </table>
+        <p>
+            <a asp-action="Create" asp-route-id="@ViewBag.CompanyId">Create new vehicle</a>
+        </p>
+    }
+    else
+    {
+        <p>Companies missing</p>
+    }
+}
+<div class="row">
+    <div class="col-lg-8">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cars[0].VIN)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cars[0].RegNr)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cars[0].CreationTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cars[0].Online)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Cars)
+                {
+                    var iidd = item.Id + "_2";
+
+                    <tr id="@iidd">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VIN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegNr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreationTime)
+                        </td>
+                        @{ var cl = item.Online ? "" : "alert-danger";}
+                        <td class="@cl">
+                            @Html.DisplayFor(modelItem => item.OnlineOrOffline)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>  }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-4">
+        <p class="alert-info">All vehicles for a particular company are shown here. In the drop-down menu, you can choose another company and see its vehicles. Note how the status changes randomly every 10 seconds.
+            <br/><br/>
+            If you press F12 and select "Console" you can see when the status changes for each car using Javascript in the browser<br /><br />If you press F12 and select "Console" you can see when the status changes for each car using Javascript in the browser.</p>
+    </div>
+</div>

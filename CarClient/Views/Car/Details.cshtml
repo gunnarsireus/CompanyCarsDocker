@@ -1,0 +1,45 @@
+@model Car
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details for vehicle belonging to @ViewBag.CompanyName</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VIN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VIN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RegNr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RegNr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreationTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Online)
+        </dt>
+        @{ var iidd = Model.Id + "_3"; var cl = Model.Online ? "" : "alert-danger";}
+        <dd id="@iidd" class="@cl" style="max-width: 50px;">
+            @Html.DisplayFor(model => model.OnlineOrOffline)
+        </dd>
+    </dl>
+</div>
+<div>
+    @{var listString = "Index/" + Model.CompanyId; }
+    <p>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="@listString">Back to list</a>
+    </p>
+</div>
