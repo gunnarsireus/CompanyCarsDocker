@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers
+namespace CarApi.Controllers
 {
     [Route("[controller]")]
     public class CustomerApiController : Controller

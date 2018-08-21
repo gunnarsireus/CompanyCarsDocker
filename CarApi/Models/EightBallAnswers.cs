@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Api.Models
+namespace CarApi.Models
 {
     public class EightBallAnswers : Dictionary<int, string>
     {

@@ -1,11 +1,11 @@
 version: '3.4'
 
 services:
-  api:
-    image: ${DOCKER_REGISTRY}api
+  carapi:
+    image: ${DOCKER_REGISTRY}carapi
     build:
       context: .
-      dockerfile: Api/Dockerfile
+      dockerfile: CarApi/Dockerfile
   web:
     image: ${DOCKER_REGISTRY}web
     build:

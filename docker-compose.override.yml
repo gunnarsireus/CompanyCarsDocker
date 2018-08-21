@@ -7,7 +7,7 @@ services:
     ports:
       - "80"
 
-  api:
+  carapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
