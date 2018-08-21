@@ -16,7 +16,7 @@ namespace Web_UI.Controllers
         private string _doSomethingAPIUrl;
         public Magic8BallController()
         {
-            _doSomethingBaseAddress = "http://api";
+            _doSomethingBaseAddress = "http://carapi";
             _doSomethingAPIUrl = "/Magic8BallApi";
         }
         // GET: /<controller>/
