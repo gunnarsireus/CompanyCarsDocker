@@ -17,7 +17,7 @@ function timerJob() {
     const tenSeconds = 10000;
     const oneSecond = 1000;
     $.ajax({
-        url: "http://carapi/api/car",
+        url: "http://localhost:54411/api/car",
         type: "GET",
         dataType: "json",
         success: function (cars) {
@@ -34,7 +34,7 @@ function timerJob() {
             }
             selectedCar.online = !selectedCar.online;
             $.ajax({
-                url: 'http://carapi/api/car/' + selectedCar.id,
+                url: 'http://localhost:54411/api/car/' + selectedCar.id,
                 contentType: "application/json",
                 type: "PUT",
                 data: JSON.stringify(selectedCar),
