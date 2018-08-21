@@ -83,7 +83,7 @@ $.validator.addMethod("alphanumeric", function(value, element) {
  * We accept the notation with spaces, as that is common.
  * acceptable: 123456789 or 12 34 56 789
  */
-$.validator.addMethod("bankaccountNL", function(value, element) {
+$.validator.addMethod("CompanyNL", function(value, element) {
 	if (this.optional(element)) {
 		return true;
 	}
@@ -105,7 +105,7 @@ $.validator.addMethod("bankaccountNL", function(value, element) {
 
 $.validator.addMethod("bankorgiroaccountNL", function(value, element) {
 	return this.optional(element) ||
-			($.validator.methods.bankaccountNL.call(this, value, element)) ||
+			($.validator.methods.CompanyNL.call(this, value, element)) ||
 			($.validator.methods.giroaccountNL.call(this, value, element));
 }, "Please specify a valid bank or giro account number");
 

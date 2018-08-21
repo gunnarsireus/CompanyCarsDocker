@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table id="myTable">
+        <tr>
+            <th>RegNr</th>
+            <th>Online</th>
+            <th>In queue</th>
+            <th>Out queue</th>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        const oneSecond = 1000;
+        (function () {
+            //const length = getParameterByName('length');
+            //for (var i = 0; i < length; i++) {
+            //    let car = {
+            //        regNr: getParameterByName('regNr' + i),
+            //        online: getParameterByName('online' + i)
+            //    };
+            //    carArr.push(car);
+            //}
+            //createTable(carArr);
+            window.setTimeout(getCars, oneSecond);
+        })();
+
+
+        function createTable(cars) {
+            var table = document.getElementById("myTable");
+            var rowCount = table.rows.length;
+            for (var x = rowCount - 1; x > 0; x--) {
+                table.deleteRow(x);
+            }
+
+            for (var i = 0; i < cars.length; i++) {
+                let car = {
+                    regNr: cars[i].regNr,
+                    online: cars[i].online
+                };
+
+                var row = table.insertRow(i + 1);
+                var cell0 = row.insertCell(0);
+                var cell1 = row.insertCell(1);
+                var cell2 = row.insertCell(2);
+                var cell3 = row.insertCell(3);
+                cell0.innerHTML = car.regNr;
+                cell1.innerHTML = car.online;
+                cell2.innerHTML = 0;
+                cell3.innerHTML = 0;
+            }
+        }
+
+        //function getParameterByName(name, url) {
+        //    if (!url) url = window.location.href;
+        //    name = name.replace(/[\[\]]/g, "\\$&");
+        //    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        //        results = regex.exec(url);
+        //    if (!results) return null;
+        //    if (!results[2]) return '';
+        //    return decodeURIComponent(results[2].replace(/\+/g, " "));
+        //}
+
+
+        function getCars() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+                    if (xmlhttp.status === 200) {
+                        let cars = JSON.parse(xmlhttp.responseText);
+                        createTable(cars);
+                        window.setTimeout(getCars, oneSecond);
+                    }
+                    else if (xmlhttp.status === 400) {
+                        alert('There was an error 400');
+                    }
+                    else {
+                        alert('something else other than 200 was returned');
+                    }
+                }
+            };
+
+            xmlhttp.open("GET", "http://carapi/api/car", true);
+            xmlhttp.send();
+        }
+    </script>
+</body>
+</html>

@@ -31,6 +31,8 @@ namespace CarClient
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddTransient<IEmailSender, EmailSender>();
+
             services.AddMvc();
             var task = ConfigureServicesAsync(services);
 
@@ -83,7 +85,7 @@ namespace CarClient
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Magic8Ball}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
