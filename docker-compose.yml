@@ -3,6 +3,8 @@ version: '3.4'
 services:
   carapi:
     image: ${DOCKER_REGISTRY}carapi
+    ports:
+      - 8080:80
     build:
       context: .
       dockerfile: CarApi/Dockerfile

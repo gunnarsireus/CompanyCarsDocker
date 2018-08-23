@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:54411/",
+      "applicationUrl": "http://carapi/",
       "sslPort": 0
     }
   },
