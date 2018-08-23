@@ -34,34 +34,9 @@ namespace CarClient
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
-            var task = ConfigureServicesAsync(services);
 
-            task.Wait();
-        }
-
-        public async Task ConfigureServicesAsync(IServiceCollection services)
-        {
-            string aspNetDb = null;
-            var aspNetDbLocation = new AspNetDbLocation();
-            try
-            {
-                aspNetDb = await aspNetDbLocation.GetAspNetDbAsync();
-            }
-            catch (Exception e)
-            {
-                //Do nothing
-            }
-            if (aspNetDb != null)
-            {
-                var test = File.Exists(aspNetDb);
-                services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite("Data Source=" + aspNetDb));
-            }
-            else
-            {
-                services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite("Data Source=" + Directory.GetCurrentDirectory() + "/App_Data/AspNet.db"));
-            }
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlite("Data Source=" + Directory.GetCurrentDirectory() + "/App_Data/AspNet.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
