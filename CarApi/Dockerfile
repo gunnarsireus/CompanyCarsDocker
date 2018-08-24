@@ -1,7 +1,6 @@
 # For more info see: http://aka.ms/VSContainerToolingDockerfiles
 FROM microsoft/aspnetcore:2.0 AS base
 WORKDIR /app
-EXPOSE 80
 EXPOSE 8080
 
 FROM microsoft/aspnetcore-build:2.0 AS builder
@@ -11,7 +10,7 @@ COPY CarApi/CarApi.csproj CarApi/
 RUN dotnet restore
 COPY . .
 WORKDIR /src/CarApi
-RUN dotnet build -c -p 8080:80 Release -o /app
+RUN dotnet build -c Release -o /app
 
 FROM builder AS publish
 RUN dotnet publish -c -p 8080:80 Release -o /app
