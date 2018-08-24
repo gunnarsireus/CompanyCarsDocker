@@ -8,7 +8,7 @@ namespace CarClient
 {
 	public static class Utils
 	{
-		private static readonly Uri Endpoint = new Uri("http://carapi");
+		private static readonly Uri Endpoint = new Uri("http://carapi/");
 
 		public static async Task<T> Get<T>(string url)
 		{
@@ -16,7 +16,7 @@ namespace CarClient
 			{
 				client.DefaultRequestHeaders.Accept.Clear();
 				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-				var response = await client.GetAsync("/" + url);
+				var response = await client.GetAsync(url);
 				var content = await response.Content.ReadAsStringAsync();
 				return await Task.Run(() => JsonConvert.DeserializeObject<T>(content));
 			}
