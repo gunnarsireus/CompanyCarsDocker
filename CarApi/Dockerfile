@@ -13,7 +13,7 @@ WORKDIR /src/CarApi
 RUN dotnet build -c Release -o /app
 
 FROM builder AS publish
-RUN dotnet publish -c -p 8080:80 Release -o /app
+RUN dotnet publish -c  Release -o /app
 
 FROM base AS production
 WORKDIR /app
