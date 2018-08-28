@@ -1,7 +1,7 @@
 # For more info see: http://aka.ms/VSContainerToolingDockerfiles
 FROM microsoft/aspnetcore:2.0 AS base
 WORKDIR /app
-EXPOSE 8080
+EXPOSE 54411
 
 FROM microsoft/aspnetcore-build:2.0 AS builder
 WORKDIR /src

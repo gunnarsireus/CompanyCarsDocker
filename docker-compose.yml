@@ -4,7 +4,7 @@ services:
   carapi:
     image: ${DOCKER_REGISTRY}carapi
     ports:
-      - 8080:80
+      - 54411:80
     build:
       context: .
       dockerfile: CarApi/Dockerfile
