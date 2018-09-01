@@ -8,8 +8,7 @@ namespace CarClient
 {
 	public static class Utils
 	{
-		private static readonly Uri Endpoint = new Uri("http://carapi/");
-
+        private static readonly Uri Endpoint = new Uri(Environment.GetEnvironmentVariable("CarApiUrl"));
 		public static async Task<T> Get<T>(string url)
 		{
 			using (var client = new HttpClient { BaseAddress = Endpoint })

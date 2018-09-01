@@ -10,11 +10,8 @@ services:
       dockerfile: CarApi/Dockerfile
   carclient:
     image: ${DOCKER_REGISTRY}carclient
+    environment:
+      - CarApiUrl=http://carapi/
     build:
       context: .
       dockerfile: CarClient/Dockerfile
-
-
-
-
-
